@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+</head>
+
+<body>
+    <h1>Task List</h1>
+    {% if task %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Due Date</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tasks in task %}
+            <tr>
+                <td><a href="#">{{ tasks.title }}</a></td>
+                <td>{{ tasks.status }}</td>
+                <td>{{ tasks.priority }}</td>
+                <td>{{ tasks.due_date }}</td>
+                <td>{{ tasks.assigned_to }}</td>
+                <td>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No tasks found.</p>
+    {% endif %}
+    <br>
+    <a href="#">Create New Task</a>
+</body>
+
+</html>

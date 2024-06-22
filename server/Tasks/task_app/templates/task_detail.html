@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details: {{ task.title }}</title>
+</head>
+
+<body>
+    <h1>Task Details</h1>
+    <p><strong>Title:</strong> {{ task.title }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Priority:</strong> {{ task.priority }}</p>
+    <p><strong>Due Date:</strong> {{ task.due_date }}</p>
+    <p><strong>Category:</strong> {{ task.category }}</p>
+    <p><strong>Assigned To:</strong> {{ task.assigned_to }}</p>
+    <br>
+    <a href="#">Back to Task List</a>
+    <a href="#">Edit Task</a>
+    <a href="#">Delete Task</a>
+</body>
+
+</html>

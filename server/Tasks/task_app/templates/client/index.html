@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+    {% load static %}
+    <div class="flex p-5 w-screen-100" style='width: 100%;'>
+        <nav class="w-1/8 ">
+            <img src= "{% static 'logo.jpg' %}" alt='logo ' class="w-70%">
+            <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Dashboard</h3>
+            <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Tasks</h3>
+            <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Calendar</h3>
+            <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Members</h3>
+        </nav>
+        <section class="px-4" style="width: 90%;">
+            <div class="flex flex-wrap justify-between items-center">
+                <input type="search" placeholder="Search tasks"
+                    class="px-4 py-2 border rounded bg-grey-300 text-black w-2/6" />
+                <div class="flex justify-end">
+                    <button class="rounded-full px-4 border-2 border-black mx-2">Chat</button>
+                    <button class="rounded-full px-4 border-2 border-black mx-2"> Notifications</button>
+                    <img src="{% static 'sample passport.webp' %}" alt='profile picture' class="rounded-full w-8 h-8" />
+                </div>
+            </div>
+            <div class="flex flex-wrap h-20 items-center justify-between">
+                <div class="flex">
+                    <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black"><a href = "#">Preview</a></button>
+                    <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black">Sort</button>
+                    <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black">Filter</button>
+                </div>
+                <div class="flex justify-end">
+                    <button
+                        class="text-black px-2 py-1 mr-2 rounded border-dashed border-2 border-black">Groups</button>
+                    <h6
+                        class="text-black-100 text-center justify-center mx-2 w-8 h-8 rounded-full border-2 border-dashed">
+                        +</h6>
+                    <button class="bg-blue-500 text-white px-4 py-2 ml-5 rounded"><a
+                            href='http://127.0.0.1:8000/task/create'>+ Add task</a></button>
+                </div>
+            </div>
+            <section class="flex flex-wrap justify-between items-center">
+                <aside>
+                    <div class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
+                        <h5>In Progress</h5>
+                        <span>(2)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-pink-300 px-4 py-1 rounded mr-2">High</button>
+                        <button class="px-4 py-1 rounded mr-2 shadow-md">6:00 pm</button>
+                        <button class="bg-gray-300 px-4 py-1 rounded mr-2">UX Design</button>
+                </aside>
+                <aside>
+                    <div  class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
+                        <h5>Completed Tasks</h5>
+                        <span>(4)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-gray-300 text-red-400 px-4 py-1 rounded mr-2">High</button>
+                        <button class="bg-gray-300 text-blue-400 px-4 py-1 rounded mr-2">6:00 pm</button>
+                        <button class="bg-blue-300 text-red-500 px-4 py-1 rounded mr-2">UX Design</button>
+                    </div>
+                </aside>
+                <aside>
+                    <div class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
+                        <h5>Overdue</h5>
+                        <span>(5)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-gray-300 text-red-400 px-4 py-1 rounded mr-2">High</button>
+                        <button class="bg-gray-300 text-blue-400 px-4 py-1 rounded mr-2">22/06/23</button>
+                        <button class="bg-gray-300 text-red-500 px-4 py-1 rounded mr-2">UX Design</button>
+                    </div>
+                </aside>
+            </section>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
