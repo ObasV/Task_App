@@ -7,7 +7,9 @@ from .forms import TaskForm
 
 #Landing page
 def landing_page(request):
-    return render(request, 'client/index.html')
+    tasks = Task.objects.all().order_by('-due_date') 
+    context = {'task': tasks}
+    return render(request, 'client/index.html', context)
 
 
 # Function to display a list of all tasks

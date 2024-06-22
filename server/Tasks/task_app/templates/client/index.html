@@ -14,7 +14,7 @@
     {% load static %}
     <div class="flex p-5 w-screen-100" style='width: 100%;'>
         <nav class="w-1/8 ">
-            <img src= "{% static 'logo.jpg' %}" alt='logo ' class="w-70%">
+            <img src="{% static 'logo.jpg' %}" alt='logo ' class="w-70%">
             <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Dashboard</h3>
             <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Tasks</h3>
             <h3 class="hover:bg-blue-500 hover:text-white rounded-lg p-2">Calendar</h3>
@@ -32,7 +32,8 @@
             </div>
             <div class="flex flex-wrap h-20 items-center justify-between">
                 <div class="flex">
-                    <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black"><a href = "#">Preview</a></button>
+                    <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black"><a
+                            href="#">Preview</a></button>
                     <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black">Sort</button>
                     <button class="text-black px-4 py-0.5 mr-2 rounded border border-4 border-black">Filter</button>
                 </div>
@@ -47,6 +48,7 @@
                 </div>
             </div>
             <section class="flex flex-wrap justify-between items-center">
+                {% if task %}
                 <aside>
                     <div class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
                         <h5>In Progress</h5>
@@ -56,9 +58,26 @@
                         <button class="bg-pink-300 px-4 py-1 rounded mr-2">High</button>
                         <button class="px-4 py-1 rounded mr-2 shadow-md">6:00 pm</button>
                         <button class="bg-gray-300 px-4 py-1 rounded mr-2">UX Design</button>
+                    </div>
+                    {% if task.status == 'In Progress' %}
+                    <div>
+                        {% for tasks in task %}
+                        <ul>
+                            <li>Title : {{ tasks.title }}</li>
+                            <li>Status : {{ tasks.status }}</li>
+                            <li>Priority : {{ tasks.priority }}</li>
+                            <li>Due Date : {{ tasks.due_date }}</li>
+                            <li>Assigned To : {{ tasks.assign_to }}</li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p>No tasks found.</p>
+                    {% endif %}
+
                 </aside>
                 <aside>
-                    <div  class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
+                    <div class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
                         <h5>Completed Tasks</h5>
                         <span>(4)</span>
                     </div>
@@ -67,6 +86,22 @@
                         <button class="bg-gray-300 text-blue-400 px-4 py-1 rounded mr-2">6:00 pm</button>
                         <button class="bg-blue-300 text-red-500 px-4 py-1 rounded mr-2">UX Design</button>
                     </div>
+                    {% if task.status == 'Completed' %}
+                    <div>
+                        {% for tasks in task %}
+                        <ul>
+                            <li>Title : {{ tasks.title }}</li>
+                            <li>Status : {{ tasks.status }}</li>
+                            <li>Priority : {{ tasks.priority }}</li>
+                            <li>Due Date : {{ tasks.due_date }}</li>
+                            <li>Assigned To : {{ tasks.assign_to }}</li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p>No tasks found.</p>
+                    {% endif %}
+
                 </aside>
                 <aside>
                     <div class="flex justify-left items-center border-2 border-black p-1 rounded my-4">
@@ -78,7 +113,27 @@
                         <button class="bg-gray-300 text-blue-400 px-4 py-1 rounded mr-2">22/06/23</button>
                         <button class="bg-gray-300 text-red-500 px-4 py-1 rounded mr-2">UX Design</button>
                     </div>
+                    {% if task.status == 'Overdue' %}
+                    <div>
+                        {% for tasks in task %}
+                        <ul>
+                            <li>Title : {{ tasks.title }}</li>
+                            <li>Status : {{ tasks.status }}</li>
+                            <li>Priority : {{ tasks.priority }}</li>
+                            <li>Due Date : {{ tasks.due_date }}</li>
+                            <li>Assigned To : {{ tasks.assign_to }}</li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p>No tasks found.</p>
+                    {% endif %}
+
                 </aside>
+                {% else %}
+                <p>No tasks found.</p>
+                {% endif %}
+
             </section>
 
         </section>
